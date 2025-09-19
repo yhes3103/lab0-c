@@ -194,6 +194,9 @@ bool q_delete_dup(struct list_head *head)
     if (!head || q_empty(head))
         return false;
 
+    // sort the list first
+    q_sort(head, false);
+
     bool deleted = false;
     struct list_head *cur = head->next;
     while (cur != head && cur->next != head) {
